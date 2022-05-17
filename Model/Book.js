@@ -6,8 +6,11 @@ class Book {
     this.author = author;
   }
 
-  add() {
-    // bookList.push({ title: this.title, author: this.author });
+  async add() {
+    await db.execute(`INSERT INTO books (name, author) VALUES (?,?)`, [
+      this.title,
+      this.author
+    ]);
   }
 
   static async getBooks() {

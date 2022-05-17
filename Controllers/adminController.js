@@ -4,9 +4,9 @@ function renderAdminPage(req, res, next) {
   res.render("admin");
 }
 
-function addBooks(req, res, next) {
+async function addBooks(req, res, next) {
   const newBook = new Book(req.body.title, req.body.author);
-  newBook.add();
+  await newBook.add();
   res.redirect("/library");
 }
 
